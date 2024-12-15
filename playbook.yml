@@ -1,0 +1,13 @@
+---                                                                                                                            
+- name: dynamic inventory play 
+  hosts: all
+  become: yes
+  vars:
+    content: 'created with dynamic inventory'
+    destdir: '/etc'
+    destfile: 'motd'
+  tasks:
+    - name: use copy module
+      copy:
+        content: "{{ content }}"
+        dest: "{{ destdir }}/{{destfile}}"
